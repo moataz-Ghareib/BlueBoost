@@ -1,19 +1,42 @@
+/**
+ * Language Context for BlueBoost Gaming Platform
+ * 
+ * This context provides comprehensive bilingual support for English and Arabic languages.
+ * Features:
+ * - Language switching between English (LTR) and Arabic (RTL)
+ * - Text direction management
+ * - Translation function with fallback
+ * - Persistent language preference in localStorage
+ * - Complete translation database for all UI elements
+ * 
+ * @author BlueBoost Development Team
+ */
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Language = 'en' | 'ar';
-export type Direction = 'ltr' | 'rtl';
+// Type definitions for language support
+export type Language = 'en' | 'ar';  // Supported languages: English, Arabic
+export type Direction = 'ltr' | 'rtl'; // Text directions: Left-to-right, Right-to-left
 
+/**
+ * Interface defining the language context structure
+ */
 interface LanguageContextType {
-  language: Language;
-  direction: Direction;
-  setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
-  t: (key: string) => string;
+  language: Language;                    // Current active language
+  direction: Direction;                  // Text direction based on language
+  setLanguage: (lang: Language) => void; // Function to set specific language
+  toggleLanguage: () => void;            // Function to toggle between languages
+  t: (key: string) => string;           // Translation function
 }
 
+// Create the language context with undefined default
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Translation object
+/**
+ * Complete translation database
+ * Contains all text content for both English and Arabic versions
+ * Organized by sections: header, navigation, hero, features, testimonials, FAQ, etc.
+ */
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
@@ -37,10 +60,10 @@ const translations: Record<Language, Record<string, string>> = {
     'featuresSection.title': 'Features',
     'featuresSection.heading': 'Why did you choose us?',
     'featuresSection.subtitle': 'We deliver premium game Boosting tailored to Your Needs',
-    'featuresSection.stats.completedBoosts': 'Completed Boosts',
-    'featuresSection.stats.service247': 'Service\\n24/7',
-    'featuresSection.stats.positiveReviews': 'Positive\\nreviews',
-    'featuresSection.stats.yearsExperience': 'Years Of Experience',
+    'featuresSection.stats.completedBoosts': 'Completed\nBoosts',
+    'featuresSection.stats.service247': 'Service\n24/7',
+    'featuresSection.stats.positiveReviews': 'Positive\nReviews',
+    'featuresSection.stats.yearsExperience': 'Years Of\nExperience',
     
     // Testimonials Section
     'testimonials.title': 'TESTIMONIALS',
@@ -84,9 +107,9 @@ const translations: Record<Language, Record<string, string>> = {
     // FAQ Section
     'faq.title': 'FAQ',
     'faq.heading': 'Got a question?',
-    'faq.subheading': 'We have Answers',
-    'faq.blueBoost.question': 'What is BlueBoost ?',
-    'faq.blueBoost.answer': 'BlueBoost is a dedicated platform that helps gamers reach their dream rank faster and with 100% safety. We know how frustrating it can be to stay stuck at the same rank because of bad teammates or lack of time, so we have built a team of professional players ready to help you climb with ease.',
+    'faq.subheading': 'We have them',
+    'faq.blueBoost.question': 'What is this platform?',
+    'faq.blueBoost.answer': 'This is a dedicated platform that helps gamers reach their dream rank faster and with 100% safety. We know how frustrating it can be to stay stuck at the same rank because of bad teammates or lack of time, so we have built a team of professional players ready to help you climb with ease.',
     'faq.safety.question': 'Is the service safe for my account ?',
     'faq.cancel.question': 'Can I cancel or request a refund ?',
     'faq.track.question': 'Is it possible to track or watch the boost in progress ?',
@@ -137,21 +160,21 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'من نحن',
     
     // Hero Section
-    'hero.title': 'بوستنج ماركت',
+    'hero.title': 'سوق التعزيز',
     'hero.subtitle': 'رتبتك المثالية أقرب مما تعتقد.',
     
     // Features List Section
     'features.title': 'نوفر تعزيز سريع وسهل وآمن',
-    'features.description': 'نحن في هذا المجال منذ 6 سنوات، شاهدنا كل شيء. في بوستنج ماركت، صقلنا فن تقديم تجربة تعزيز بدون تنازلات.',
+    'features.description': 'نحن في هذا المجال منذ 6 سنوات، شاهدنا كل شيء. في سوق التعزيز، صقلنا فن تقديم تجربة تعزيز بدون تنازلات.',
     
     // Features Section
     'featuresSection.title': 'المميزات',
     'featuresSection.heading': 'لماذا اخترتنا؟',
     'featuresSection.subtitle': 'نقدم خدمات تعزيز ألعاب مميزة مصممة خصيصاً لاحتياجاتك',
-    'featuresSection.stats.completedBoosts': 'تعزيزات مكتملة',
-    'featuresSection.stats.service247': 'خدمة\\n24/7',
-    'featuresSection.stats.positiveReviews': 'تقييمات\\nإيجابية',
-    'featuresSection.stats.yearsExperience': 'سنوات من الخبرة',
+    'featuresSection.stats.completedBoosts': 'تعزيزات\nمكتملة',
+    'featuresSection.stats.service247': 'خدمة\n٢٤/٧',
+    'featuresSection.stats.positiveReviews': 'تقييمات\nإيجابية',
+    'featuresSection.stats.yearsExperience': 'سنوات من\nالخبرة',
     
     // Testimonials Section
     'testimonials.title': 'آراء العملاء',
@@ -195,9 +218,9 @@ const translations: Record<Language, Record<string, string>> = {
     // FAQ Section
     'faq.title': 'الأسئلة الشائعة',
     'faq.heading': 'لديك سؤال؟',
-    'faq.subheading': 'لدينا الإجابات',
-    'faq.blueBoost.question': 'ما هو بلو بوست؟',
-    'faq.blueBoost.answer': 'بلو بوست هو منصة مخصصة تساعد اللاعبين على الوصول إلى رتبتهم المثالية بشكل أسرع وبأمان 100%. نحن نعلم كم يمكن أن يكون محبطاً البقاء عالقاً في نفس الرتبة بسبب زملاء الفريق السيئين أو نقص الوقت، لذا بنينا فريقاً من اللاعبين المحترفين جاهزين لمساعدتك على التقدم بسهولة.',
+    'faq.subheading': 'لدينا إجابة',
+    'faq.blueBoost.question': 'ما هذه المنصة؟',
+    'faq.blueBoost.answer': 'هذه منصة مخصصة تساعد اللاعبين على الوصول إلى رتبتهم المثالية بشكل أسرع وبأمان 100%. نحن نعلم كم يمكن أن يكون محبطاً البقاء عالقاً في نفس الرتبة بسبب زملاء الفريق السيئين أو نقص الوقت، لذا بنينا فريقاً من اللاعبين المحترفين جاهزين لمساعدتك على التقدم بسهولة.',
     'faq.safety.question': 'هل الخدمة آمنة لحسابي؟',
     'faq.cancel.question': 'هل يمكنني الإلغاء أو طلب استرداد الأموال؟',
     'faq.track.question': 'هل من الممكن تتبع أو مشاهدة التعزيز أثناء التقدم؟',
@@ -206,7 +229,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.timeframe.question': 'ما هو الإطار الزمني للوصول إلى النتيجة المرغوبة؟',
     
     // Call to Action Section
-    'cta.title': 'انضم إلى مجتمع بلو بوست',
+    'cta.title': 'انضم إلى مجتمع التعزيز الأزرق',
     'cta.description': 'لا تضيع الوقت عالقاً في نفس الرتبة. معنا، ستتقدم بشكل أسرع وأكثر أماناً وقوة. سجل الآن وابدأ رحلتك إلى رتبة أحلامك.',
     'cta.signIn': 'تسجيل الدخول',
     'cta.signUp': 'إنشاء حساب',
@@ -225,7 +248,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.supportDescription': 'فريق الدعم المحترف لدينا متاح 24/7 للمساعدة في أي استفسارات.',
     'footer.letsChat': 'دعنا نتحدث',
     'footer.helpCenter': 'مركز المساعدة',
-    'footer.copyright': 'بلو بوست © 2025 - جميع الحقوق محفوظة',
+    'footer.copyright': 'التعزيز الأزرق © 2025 - جميع الحقوق محفوظة',
     
     // Games
     'games.marvelRivals': 'مارفل رايفلز',
@@ -239,33 +262,69 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
+/**
+ * Props interface for LanguageProvider component
+ */
 interface LanguageProviderProps {
-  children: ReactNode;
+  children: ReactNode; // Child components to be wrapped with language context
 }
 
+/**
+ * LanguageProvider Component
+ * 
+ * Provides language context to the entire application.
+ * Manages language state, direction, and persistence.
+ * 
+ * Features:
+ * - Automatic text direction switching (LTR/RTL)
+ * - localStorage persistence for user preference
+ * - HTML document attribute updates for proper rendering
+ * - Translation function with key fallback
+ * 
+ * @param {LanguageProviderProps} props - Component props containing children
+ * @returns {JSX.Element} Provider component wrapping children
+ */
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+  // State management for current language (default: English)
   const [language, setLanguageState] = useState<Language>('en');
+  
+  // Computed text direction based on language (Arabic = RTL, English = LTR)
   const direction: Direction = language === 'ar' ? 'rtl' : 'ltr';
 
+  /**
+   * Sets the application language and updates DOM attributes
+   * 
+   * @param {Language} lang - Language to set ('en' or 'ar')
+   */
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    // Update HTML attributes
+    
+    // Update HTML document attributes for proper browser handling
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     
-    // Save to localStorage
+    // Persist user preference in browser storage
     localStorage.setItem('blueBoost-language', lang);
   };
 
+  /**
+   * Toggles between English and Arabic languages
+   */
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
   };
 
+  /**
+   * Translation function
+   * 
+   * @param {string} key - Translation key (e.g., 'hero.title')
+   * @returns {string} Translated text or key if translation not found
+   */
   const t = (key: string): string => {
     return translations[language][key] || key;
   };
 
-  // Load saved language on mount
+  // Load saved language preference on component mount
   useEffect(() => {
     const savedLanguage = localStorage.getItem('blueBoost-language') as Language;
     if (savedLanguage && ['en', 'ar'].includes(savedLanguage)) {
@@ -273,12 +332,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
   }, []);
 
+  // Context value object containing all language-related functions and state
   const value: LanguageContextType = {
-    language,
-    direction,
-    setLanguage,
-    toggleLanguage,
-    t,
+    language,       // Current active language
+    direction,      // Text direction (ltr/rtl)
+    setLanguage,    // Function to set specific language
+    toggleLanguage, // Function to toggle languages
+    t,              // Translation function
   };
 
   return (
@@ -288,6 +348,15 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   );
 };
 
+/**
+ * Custom hook to access language context
+ * 
+ * Provides access to language state and functions.
+ * Must be used within a LanguageProvider component.
+ * 
+ * @returns {LanguageContextType} Language context object
+ * @throws {Error} If used outside of LanguageProvider
+ */
 export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
   if (context === undefined) {
@@ -296,4 +365,5 @@ export const useLanguage = (): LanguageContextType => {
   return context;
 };
 
+// Export the context for advanced usage if needed
 export { LanguageContext };

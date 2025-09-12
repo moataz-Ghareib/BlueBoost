@@ -1,9 +1,61 @@
-import React from "react";
-import { Button } from "../../../../components/ui/button";
-import { useLanguage } from "../../../../contexts/LanguageContext";
+/**
+ * Footer Section for BlueBoost Gaming Platform
+ * قسم التذييل لمنصة BlueBoost للألعاب
+ * 
+ * Complete footer with game cards, company information, links, and contact details.
+ * تذييل كامل مع بطاقات الألعاب ومعلومات الشركة والروابط وتفاصيل الاتصال
+ * 
+ * Features / المميزات:
+ * - Responsive game cards with optimized tablet support / بطاقات ألعاب متجاوبة مع دعم محسن للأجهزة اللوحية
+ * - Single horizontal row layout on web screens / تخطيط صف أفقي واحد على شاشات الويب
+ * - Professional hover effects and animations / تأثيرات تحويم ورسوم متحركة احترافية
+ * - Multilingual support (Arabic/English) / دعم متعدد اللغات (عربي/إنجليزي)
+ * - Dynamic responsive breakpoints / نقاط استجابة ديناميكية
+ * - Company information and legal links / معلومات الشركة والروابط القانونية
+ * - Professional support contact section / قسم الاتصال بالدعم الفني المحترف
+ * 
+ * Technical Implementation / التطبيق التقني:
+ * - React functional component with TypeScript / مكون React وظيفي مع TypeScript
+ * - Tailwind CSS for responsive styling / Tailwind CSS للتصميم المتجاوب
+ * - Context-based language switching / تبديل اللغة باستخدام Context
+ * - Optimized for mobile, tablet, and desktop / محسن للهاتف والتابلت وسطح المكتب
+ * 
+ * @author BlueBoost Development Team
+ * @version 1.0.0
+ * @since 2024
+ */
 
+// استيراد React والمكونات المطلوبة / Import React and required components
+import React from "react";
+import { Button } from "../../../../components/ui/button"; // مكون الزر من مكتبة UI / Button component from UI library
+import { useLanguage } from "../../../../contexts/LanguageContext"; // سياق اللغة للترجمة / Language context for translation
+
+/**
+ * FooterSection Component - Main footer component for the BlueBoost platform
+ * مكون FooterSection - مكون التذييل الرئيسي لمنصة BlueBoost
+ * 
+ * Renders complete footer with all company information, game cards, legal links,
+ * and professional support contact section. Fully responsive across all devices.
+ * يعرض تذييل كامل مع جميع معلومات الشركة وبطاقات الألعاب
+ * والروابط القانونية وقسم الاتصال بالدعم المحترف
+ * 
+ * @returns {JSX.Element} Complete footer section / قسم تذييل كامل
+ */
 export const FooterSection = (): JSX.Element => {
+  // استخراج دالة الترجمة واللغة الحالية / Extract translation function and current language
   const { t, language } = useLanguage();
+  
+  /**
+   * Game data array for footer game cards display
+   * مصفوفة بيانات الألعاب لعرض بطاقات الألعاب في التذييل
+   * 
+   * Contains 8 popular games with their icons and translation keys.
+   * Optimized for single-line horizontal display on web screens.
+   * تحتوي على 8 ألعاب شائعة مع رموزها ومفاتيح الترجمة
+   * محسنة للعرض الأفقي في صف واحد على شاشات الويب
+   * 
+   * @type {Array<{key: string, icon: string, width: string}>}
+   */
   const gameData = [
     {
       key: "games.marvelRivals",
@@ -53,17 +105,18 @@ export const FooterSection = (): JSX.Element => {
 
   return (
     <footer className="flex flex-col w-full items-center gap-6 md:gap-8 lg:gap-10 relative bg-transparent rounded-[10px] border-t-2 [border-top-style:solid] [border-right-style:none] [border-bottom-style:none] [border-left-style:none] border-[#2f2f2f3d] px-4 md:px-8">
-      <div className="flex w-full items-center justify-center gap-3 md:gap-6 lg:gap-8 py-6 md:py-8 lg:py-10 px-4">
+      {/* حاوية البطاقات مع التخطيط المتجاوب / Responsive cards container */}
+      <div className="flex flex-wrap xl:flex-nowrap w-full items-center justify-center xl:justify-between gap-3 sm:gap-4 md:gap-3 lg:gap-4 xl:gap-2 py-6 md:py-8 lg:py-10 px-4 md:px-6 lg:px-8">
         {gameData.map((game, index) => (
           <div
             key={index}
-            className="relative flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 bg-[#1a1a1a] hover:bg-[#2a2a2a] rounded-[8px] transition-colors cursor-pointer border border-[#333333]"
+            className="relative flex items-center gap-2 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-2 px-2 sm:px-3 md:px-3 lg:px-3 xl:px-2 py-2 sm:py-3 md:py-3 lg:py-3 xl:py-2 bg-[#1a1a1a] hover:bg-[#2a2a2a] rounded-[8px] md:rounded-[10px] transition-all duration-300 ease-out cursor-pointer border border-[#333333] hover:border-[#407bff]/50 hover:scale-105 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20 group min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] xl:min-w-[140px] xl:flex-1 xl:flex-shrink-0 max-w-[200px] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[280px] xl:max-w-none"
           >
             <div
-              className="w-5 h-5 md:w-6 md:h-6 bg-cover bg-center rounded"
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-6 xl:h-6 bg-cover bg-center rounded transition-all duration-300 group-hover:scale-110 flex-shrink-0"
               style={{ backgroundImage: `url(${game.icon})` }}
             />
-            <span className={`[font-family:'Open_Sans',Helvetica] font-medium text-white text-xs md:text-sm whitespace-nowrap hidden md:block ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+            <span className={`[font-family:'Open_Sans',Helvetica] font-medium text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm whitespace-nowrap transition-all duration-300 group-hover:text-blue-200 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
               {t(game.key)}
             </span>
           </div>
@@ -93,9 +146,9 @@ export const FooterSection = (): JSX.Element => {
               {companyLinks.map((link, index) => (
                 <div
                   key={index}
-                  className={`absolute w-[70px] md:w-[81px] h-5 md:h-6 ${index === 0 ? "top-0" : index === 1 ? "top-6 md:top-10" : "top-12 md:top-20"} left-0`}
+                  className={`absolute w-[70px] md:w-[81px] h-5 md:h-6 ${index === 0 ? "top-0" : index === 1 ? "top-6 md:top-10" : "top-12 md:top-20"} left-0 cursor-pointer group`}
                 >
-                  <div className={`[font-family:'Open_Sans',Helvetica] font-normal text-[#ffffff99] text-[12px] md:text-base tracking-[0] leading-5 md:leading-6 whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                  <div className={`[font-family:'Open_Sans',Helvetica] font-normal text-[#ffffff99] text-[12px] md:text-base tracking-[0] leading-5 md:leading-6 whitespace-nowrap transition-all duration-300 hover:text-blue-300 hover:translate-x-1 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                     {link}
                   </div>
                 </div>
@@ -112,9 +165,9 @@ export const FooterSection = (): JSX.Element => {
               {legalLinks.map((link, index) => (
                 <div
                   key={index}
-                  className={`w-[80px] md:w-[100px] ${index === 0 ? "top-0" : index === 1 ? "top-6 md:top-10" : "top-12 md:top-20"} absolute h-5 md:h-6 left-0`}
+                  className={`w-[80px] md:w-[100px] ${index === 0 ? "top-0" : index === 1 ? "top-6 md:top-10" : "top-12 md:top-20"} absolute h-5 md:h-6 left-0 cursor-pointer group`}
                 >
-                  <div className={`[font-family:'Open_Sans',Helvetica] font-normal text-[#ffffff99] text-[12px] md:text-base tracking-[0] leading-5 md:leading-6 whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                  <div className={`[font-family:'Open_Sans',Helvetica] font-normal text-[#ffffff99] text-[12px] md:text-base tracking-[0] leading-5 md:leading-6 whitespace-nowrap transition-all duration-300 hover:text-blue-300 hover:translate-x-1 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                     {link}
                   </div>
                 </div>
@@ -123,7 +176,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="flex flex-col w-full md:w-[300px] lg:w-[384.1px] items-end gap-4 md:gap-6 relative">
+        <div className="flex flex-col w-full md:w-[300px] lg:w-[384.1px] items-start md:items-end gap-4 md:gap-6 relative">
           <div className={`relative self-stretch h-5 md:h-6 mt-[-1.00px] opacity-80 [font-family:'Open_Sans',Helvetica] font-bold text-white text-[12px] md:text-base tracking-[0] leading-5 md:leading-6 whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
             {t('footer.needHelp')}
           </div>
@@ -133,13 +186,13 @@ export const FooterSection = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-2 md:gap-3 relative self-stretch w-full flex-[0_0_auto]">
-            <Button className="w-full sm:w-[140px] md:w-[160px] lg:w-[186.05px] h-[40px] md:h-[44px] lg:h-[48.01px] rounded-[8px] md:rounded-[10px] lg:rounded-[10.67px] bg-[linear-gradient(90deg,rgba(59,114,238,1)_0%,rgba(34,65,136,1)_100%)] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-[12px] md:text-[13px] lg:text-base text-center tracking-[0] leading-4 md:leading-5">
+            <Button className="w-full sm:w-[140px] md:w-[160px] lg:w-[186.05px] h-[40px] md:h-[44px] lg:h-[48.01px] rounded-[8px] md:rounded-[10px] lg:rounded-[10.67px] bg-[linear-gradient(90deg,rgba(59,114,238,1)_0%,rgba(34,65,136,1)_100%)] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-[12px] md:text-[13px] lg:text-base text-center tracking-[0] leading-4 md:leading-5 hover:bg-[linear-gradient(90deg,rgba(69,124,248,1)_0%,rgba(44,75,146,1)_100%)] hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98]">
               {t('footer.letsChat')}
             </Button>
 
             <Button
               variant="outline"
-              className="w-full sm:w-[140px] md:w-[160px] lg:w-[186.05px] h-[40px] md:h-[44px] lg:h-[48.01px] bg-[#ffffff0d] rounded-[8px] md:rounded-[10px] lg:rounded-[10.67px] border border-solid backdrop-blur-[4px] md:backdrop-blur-[6px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] md:[-webkit-backdrop-filter:blur(6px)_brightness(100%)] [font-family:'Open_Sans',Helvetica] font-normal text-[#ffffffcc] text-[12px] md:text-[13px] lg:text-base text-center tracking-[0] leading-4 md:leading-5 mt-2 sm:mt-0"
+              className="w-full sm:w-[140px] md:w-[160px] lg:w-[186.05px] h-[40px] md:h-[44px] lg:h-[48.01px] bg-[#ffffff0d] rounded-[8px] md:rounded-[10px] lg:rounded-[10.67px] border border-solid backdrop-blur-[4px] md:backdrop-blur-[6px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] md:[-webkit-backdrop-filter:blur(6px)_brightness(100%)] [font-family:'Open_Sans',Helvetica] font-normal text-[#ffffffcc] text-[12px] md:text-[13px] lg:text-base text-center tracking-[0] leading-4 md:leading-5 mt-2 sm:mt-0 hover:bg-[#ffffff1a] hover:border-[#407bff]/50 hover:text-blue-200 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98]"
             >
               {t('footer.helpCenter')}
             </Button>

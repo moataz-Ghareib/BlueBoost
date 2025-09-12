@@ -1,6 +1,28 @@
+/**
+ * Testimonials Section for BlueBoost Gaming Platform
+ * 
+ * This section displays customer testimonials in an animated dual-carousel layout.
+ * Features direction-aware animations, staggered timing, and RTL/LTR support.
+ * 
+ * Features:
+ * - Dual-row animated carousels with different speeds
+ * - Direction-aware animations (RTL/LTR support)
+ * - Staggered animation timing (1-second delay on first row)
+ * - Professional hover effects on testimonial cards
+ * - Responsive design across all device sizes
+ * - Seamless infinite scrolling with duplicated content
+ * 
+ * @author BlueBoost Development Team
+ */
+
 import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../../../../contexts/LanguageContext";
 import { Card, CardContent } from "../../../../components/ui/card";
+
+/**
+ * Testimonials data structure
+ * Contains customer testimonials with names, locations, and feedback
+ */
 
 const testimonialsData = [
   {
@@ -178,25 +200,25 @@ export const TestimonialsSection = (): JSX.Element => {
             {firstRow.map((testimonial) => (
               <div key={`first-${testimonial.id}`} className="mx-4 md:mx-6 lg:mx-8 min-w-[250px] md:min-w-[400px] lg:min-w-[592px]">
                 <Card
-                  className={`${testimonial.bgColor} rounded-[10px] md:rounded-[12px] lg:rounded-[14.87px] border-0 w-[250px] md:w-[400px] lg:w-[592px] h-[150px] md:h-[200px] lg:h-[251px] relative`}
+                  className={`${testimonial.bgColor} rounded-[10px] md:rounded-[12px] lg:rounded-[14.87px] border-0 w-[250px] md:w-[400px] lg:w-[592px] h-[150px] md:h-[200px] lg:h-[251px] relative transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer group`}
                 >
                   <CardContent className="p-0 h-full">
-                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px]">
+                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px] transition-all duration-300 group-hover:translate-x-1">
                       <div
-                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat"
+                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundImage: `url(${testimonial.avatar})` }}
                       />
-                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px]">
-                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px] transition-all duration-300 group-hover:translate-x-1">
+                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-200 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.nameKey)}
                         </div>
-                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-300 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.locationKey)}
                         </div>
                       </div>
                     </div>
 
-                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] transition-all duration-300 group-hover:text-white ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                       {t(testimonial.textKey)}
                     </div>
 
@@ -217,22 +239,22 @@ export const TestimonialsSection = (): JSX.Element => {
                   className={`${testimonial.bgColor} rounded-[10px] md:rounded-[12px] lg:rounded-[14.87px] border-0 w-[250px] md:w-[400px] lg:w-[592px] h-[150px] md:h-[200px] lg:h-[251px] relative`}
                 >
                   <CardContent className="p-0 h-full">
-                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px]">
+                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px] transition-all duration-300 group-hover:translate-x-1">
                       <div
-                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat"
+                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundImage: `url(${testimonial.avatar})` }}
                       />
-                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px]">
-                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px] transition-all duration-300 group-hover:translate-x-1">
+                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-200 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.nameKey)}
                         </div>
-                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-300 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.locationKey)}
                         </div>
                       </div>
                     </div>
 
-                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] transition-all duration-300 group-hover:text-white ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                       {t(testimonial.textKey)}
                     </div>
 
@@ -265,22 +287,22 @@ export const TestimonialsSection = (): JSX.Element => {
                   className={`${testimonial.bgColor} rounded-[10px] md:rounded-[12px] lg:rounded-[14.87px] border-0 w-[250px] md:w-[400px] lg:w-[592px] h-[150px] md:h-[200px] lg:h-[251px] relative`}
                 >
                   <CardContent className="p-0 h-full">
-                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px]">
+                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px] transition-all duration-300 group-hover:translate-x-1">
                       <div
-                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat"
+                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundImage: `url(${testimonial.avatar})` }}
                       />
-                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px]">
-                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px] transition-all duration-300 group-hover:translate-x-1">
+                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-200 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.nameKey)}
                         </div>
-                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-300 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.locationKey)}
                         </div>
                       </div>
                     </div>
 
-                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] transition-all duration-300 group-hover:text-white ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                       {t(testimonial.textKey)}
                     </div>
 
@@ -301,22 +323,22 @@ export const TestimonialsSection = (): JSX.Element => {
                   className={`${testimonial.bgColor} rounded-[10px] md:rounded-[12px] lg:rounded-[14.87px] border-0 w-[250px] md:w-[400px] lg:w-[592px] h-[150px] md:h-[200px] lg:h-[251px] relative`}
                 >
                   <CardContent className="p-0 h-full">
-                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px]">
+                    <div className="flex items-center gap-2 md:gap-3 lg:gap-[12.4px] absolute top-3 md:top-4 lg:top-[38px] left-3 md:left-4 lg:left-[30px] transition-all duration-300 group-hover:translate-x-1">
                       <div
-                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat"
+                        className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52.06px] lg:h-[52.06px] rounded-[15px] md:rounded-[20px] lg:rounded-[26.03px] bg-cover bg-center bg-no-repeat transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundImage: `url(${testimonial.avatar})` }}
                       />
-                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px]">
-                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                      <div className="flex flex-col w-[60px] md:w-[70px] lg:w-[84.53px] items-center gap-0.5 md:gap-1 lg:gap-[4.96px] transition-all duration-300 group-hover:translate-x-1">
+                        <div className={`w-full font-medium text-white text-[12px] md:text-[14px] lg:text-[16.9px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-200 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.nameKey)}
                         </div>
-                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                        <div className={`w-full font-normal text-[#9a9a9a] text-[10px] md:text-[11px] lg:text-[13.7px] tracking-[0] leading-[1.2] whitespace-nowrap transition-all duration-300 group-hover:text-blue-300 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                           {t(testimonial.locationKey)}
                         </div>
                       </div>
                     </div>
 
-                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
+                    <div className={`absolute w-[220px] md:w-[350px] lg:w-[475px] top-16 md:top-24 lg:top-28 left-3 md:left-4 lg:left-[30px] font-medium text-[#cbcbcb] text-[12px] md:text-[14px] lg:text-[16.1px] tracking-[0] leading-[1.3] lg:leading-[1.4] transition-all duration-300 group-hover:text-white ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                       {t(testimonial.textKey)}
                     </div>
 
