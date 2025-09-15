@@ -1,18 +1,18 @@
 /**
- * Hero Section for BlueBoost Gaming Platform
+ * قسم البطل لمنصة BlueBoost للألعاب
  * 
- * This is the main landing section featuring navigation, character image, and hero content.
- * Includes responsive mobile/desktop layouts, RTL/LTR support, and professional animations.
+ * هذا هو قسم الهبوط الرئيسي الذي يتميز بالتنقل وصورة الشخصية ومحتوى البطل.
+ * يتضمن تخطيطات متجاوبة للهاتف المحمول/سطح المكتب ودعم RTL/LTR ورسوم متحركة احترافية.
  * 
- * Features:
- * - Responsive mobile and desktop layouts
- * - Professional navigation with dropdown menu
- * - Enhanced character image with glow effects
- * - Language toggle and user authentication UI
- * - RTL/LTR text direction support
- * - Professional hover effects and animations
+ * المميزات:
+ * - تخطيطات متجاوبة للهاتف المحمول وسطح المكتب
+ * - تنقل احترافي مع قائمة منسدلة
+ * - صورة شخصية محسنة مع تأثيرات التوهج
+ * - تبديل اللغة وواجهة مستخدم المصادقة
+ * - دعم اتجاه النص RTL/LTR
+ * - تأثيرات تحويم ورسوم متحركة احترافية
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -34,7 +34,6 @@ import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import LanguageToggle from "../../../../components/LanguageToggle";
 import { useLanguage } from "../../../../contexts/LanguageContext";
-
 const navigationItems = [
   {
     icon: HomeIcon,
@@ -64,7 +63,7 @@ export const HeroSection = (): JSX.Element => {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Close menu when clicking outside
+  // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -89,21 +88,21 @@ export const HeroSection = (): JSX.Element => {
       <div className="relative h-[900px]">
 
         <div className="absolute w-full h-[900px] top-0 left-0">
-          {/* Right-side blue glow from asset */}
+          {/* التوهج الأزرق من الجانب الأيمن من الأصول */}
           <img
-            src="/Ellipse 133.svg"
+            src="/assets/images/Ellipse 133.svg"
             alt="Glow"
             className="hidden"
             aria-hidden="true"
           />
-          
-          {/* Mobile Layout - Professional Design */}
+
+          {/* تخطيط الهاتف المحمول - تصميم احترافي */}
           <div className="md:hidden flex flex-col h-full bg-gradient-to-b from-[#010b19] via-[#0a1628] to-[#010b19]">
-            {/* Mobile Header - Enhanced */}
+            {/* رأس الهاتف المحمول - محسن */}
             <header className="flex w-full items-center justify-between px-5 py-4 bg-[#010b19]/80 backdrop-blur-sm border-b border-[#ffffff10]">
               <div className={`flex items-center gap-3 ${direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'}`}>
                 <img
-                  src="/BlueBoostz Logo.svg"
+                  src="/assets/images/BlueBoostz Logo.svg"
                   alt="BlueBoostz logo"
                   className="w-[120px] h-[38px] rounded-[1px]"
                 />
@@ -120,59 +119,59 @@ export const HeroSection = (): JSX.Element => {
               </div>
             </header>
 
-            {/* Mobile Content - Professional Layout */}
+            {/* محتوى الهاتف المحمول - تخطيط احترافي */}
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-8 relative overflow-hidden">
-              {/* Background Effects */}
+              {/* تأثيرات الخلفية */}
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute w-[300px] h-[300px] bg-[#407bff]/20 rounded-full blur-[120px] top-[10%] left-[10%] animate-pulse" />
                 <div className="absolute w-[250px] h-[250px] bg-[#6bb6ff]/15 rounded-full blur-[100px] bottom-[20%] right-[10%]" />
               </div>
 
-              {/* Hero Image Container - Enhanced */}
+              {/* حاوية صورة البطل - محسنة */}
               <div className="relative mb-8 z-10">
                 <div className="relative w-[280px] h-[280px] mx-auto">
-                  {/* Glow Effects */}
+                  {/* تأثيرات التوهج */}
                   <div className="absolute inset-0 bg-gradient-radial from-[#407bff]/30 via-[#407bff]/10 to-transparent rounded-full blur-[40px] scale-110 animate-pulse" />
                   <div className="absolute inset-0 bg-gradient-radial from-[#6bb6ff]/20 via-transparent to-transparent rounded-full blur-[60px] scale-125" />
-                  
-                  {/* Character Image */}
+
+                  {/* صورة الشخصية */}
                   <img
-                    src="/LOL.png"
+                    src="/assets/images/LOL.png"
                     alt="League of Legends Hero Character"
                     className="relative w-full h-full object-contain rounded-2xl"
                     style={{
                       filter: 'brightness(1.2) contrast(1.1) saturate(1.2) drop-shadow(0 0 30px rgba(74, 158, 255, 0.6))'
                     }}
                   />
-                  
-                  {/* Decorative Elements */}
+
+                  {/* العناصر الزخرفية */}
                   <div className="absolute -top-4 -right-4 w-8 h-8 bg-[#407bff]/40 rounded-full blur-sm animate-bounce" style={{ animationDelay: '0.5s' }} />
                   <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-[#6bb6ff]/40 rounded-full blur-sm animate-bounce" style={{ animationDelay: '1s' }} />
                 </div>
               </div>
 
-              {/* Text Content - Enhanced Typography */}
+              {/* محتوى النص - طباعة محسنة */}
               <div className="text-center space-y-4 z-10 max-w-[340px]">
-                {/* Main Title */}
+                {/* العنوان الرئيسي */}
                 <h1 className={`bg-gradient-to-r from-[#407bff] via-[#6bb6ff] to-[#407bff] bg-clip-text text-transparent font-bold text-[32px] leading-[1.1] tracking-[-0.5px] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                   {t('hero.title')}
                 </h1>
-                
-                {/* Subtitle */}
+
+                {/* العنوان الفرعي */}
                 <p className={`text-[#e0e0e0] text-[16px] leading-[1.5] font-medium tracking-[0.2px] opacity-90 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                   {t('hero.subtitle')}
                 </p>
               </div>
             </div>
           </div>
-          
-          {/* Desktop Layout (flow, not absolute) */}
+
+          {/* تخطيط سطح المكتب (تدفق، وليس مطلق) */}
           <div className="hidden md:block relative">
             <header className="flex w-full h-24 md:h-28 items-center justify-between gap-8 px-4 md:px-8 py-3 z-20">
               <div className="flex items-center justify-between relative flex-1 grow">
                 <div className="inline-flex items-center gap-2 md:gap-4 lg:gap-6 relative flex-[0_0_auto]">
                   <img
-                   src="/BlueBoostz Logo.svg"
+                    src="/assets/images/BlueBoostz Logo.svg"
                     alt="BlueBoostz logo"
                     className="relative w-[100px] h-[32px] md:w-[180px] md:h-[58px] lg:w-[238.51px] lg:h-[77px] rounded-[1.33px]"
                   />
@@ -209,10 +208,10 @@ export const HeroSection = (): JSX.Element => {
                 <div className="inline-flex items-center gap-2 md:gap-4 lg:gap-6 relative flex-[0_0_auto]">
                   <div className="inline-flex items-center gap-[10px] md:gap-[15px] lg:gap-[22px] relative flex-[0_0_auto]">
                     <LanguageToggle />
-                    
+
                     <Avatar className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px] rounded-[30px] border border-solid border-[#45454580]">
                       <AvatarImage
-                        src="/frame-1690.png"
+                        src="/assets/images/frame-1690.png"
                         alt="UserIcon avatar"
                       />
                       <AvatarFallback>U</AvatarFallback>
@@ -248,7 +247,7 @@ export const HeroSection = (): JSX.Element => {
               </div>
             </header>
 
-            {/* Toggleable menu card - Updated Design */}
+            {/* بطاقة القائمة القابلة للتبديل - تصميم محدث */}
             {isMenuOpen && (
               <div ref={menuRef}>
                 <Card className={`flex flex-col w-[280px] items-start gap-0 px-0 py-4 absolute top-[80px] ${direction === 'rtl' ? 'left-4' : 'right-4'} rounded-[20px] overflow-hidden border-0 z-30 shadow-2xl shadow-blue-500/30`} style={{ background: 'linear-gradient(180deg, #0343D2 0%, #02339E 51.42%, #02236C 100%)' }}>
@@ -276,9 +275,9 @@ export const HeroSection = (): JSX.Element => {
               </div>
             )}
 
-            {/* Two-column content matching Figma design */}
+            {/* محتوى من عمودين يطابق تصميم Figma */}
             <div className={`hidden md:flex w-full h-[700px] lg:h-[800px] items-center px-8 lg:px-16 ${direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'}`}>
-              {/* Text Column - Left side (or right for RTL) */}
+              {/* عمود النص - الجانب الأيسر (أو الأيمن لـ RTL) */}
               <div className={`flex-1 max-w-[50%] ${direction === 'rtl' ? 'text-right mr-8 lg:mr-16' : 'text-left ml-0 lg:ml-8'} flex flex-col gap-4 lg:gap-6 z-20`}>
                 <h1 className={`bg-[linear-gradient(130deg,rgba(64,123,255,1)_0%,rgba(64,123,255,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-bold text-transparent text-[32px] md:text-[48px] lg:text-[64px] leading-[1.1] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
                   {t('hero.title')}
@@ -287,19 +286,19 @@ export const HeroSection = (): JSX.Element => {
                   {t('hero.subtitle')}
                 </p>
               </div>
-              
-              {/* Image Column - Right side (or left for RTL) */}
+
+              {/* عمود الصورة - الجانب الأيمن (أو الأيسر لـ RTL) */}
               <div className="flex-1 flex items-center justify-center relative h-full">
-                {/* Blue glow effect */}
+                {/* تأثير التوهج الأزرق */}
                 <img
-                  src="/Ellipse 133.svg"
+                  src="/assets/images/Ellipse 133.svg"
                   alt="Glow"
                   className={`absolute top-1/2 -translate-y-1/2 w-[500px] lg:w-[700px] h-auto opacity-90 select-none pointer-events-none z-0 ${direction === 'rtl' ? 'left-[-100px]' : 'right-[-100px]'}`}
                   aria-hidden="true"
                 />
-                {/* Character image */}
+                {/* صورة الشخصية */}
                 <img
-                  src="/LOL.png"
+                  src="/assets/images/LOL.png"
                   alt="League of Legends Hero Character"
                   className="h-[380px] lg:h-[500px] object-contain relative z-10"
                   style={{

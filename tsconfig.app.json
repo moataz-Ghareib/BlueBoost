@@ -1,27 +1,59 @@
+/**
+ * تكوين TypeScript للتطبيق الرئيسي - منصة BlueBoost للألعاب
+ * 
+ * يحتوي هذا الملف على إعدادات TypeScript المخصصة للتطبيق الرئيسي.
+ * يتضمن تكوين React JSX والمكتبات المطلوبة للمتصفح.
+ * 
+ * الإعدادات الرئيسية:
+ * - target: ES2020 للتوافق مع المتصفحات الحديثة
+ * - jsx: react-jsx لدعم React 17+ JSX Transform
+ * - strict: true لفحص صارم للأنواع
+ * - lib: DOM و ES2020 للواجهات والميزات الحديثة
+ * 
+ * @author فريق تطوير BlueBoost
+ */
 {
   "compilerOptions": {
+    // ملف معلومات البناء للتسريع
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    // الهدف: ES2020 للمتصفحات الحديثة
     "target": "ES2020",
+    // استخدام defineProperty للحقول الصفية
     "useDefineForClassFields": true,
+    // المكتبات المطلوبة: ES2020 + DOM APIs
     "lib": [
       "ES2020",
       "DOM",
       "DOM.Iterable"
     ],
+    // نظام الوحدات: ESNext للميزات الحديثة
     "module": "ESNext",
+    // تخطي فحص مكتبات الطرف الثالث
     "skipLibCheck": true,
+    // حل الوحدات: bundler لـ Vite
     "moduleResolution": "bundler",
+    // السماح باستيراد ملفات .ts/.tsx
     "allowImportingTsExtensions": true,
+    // وحدات معزولة للأداء
     "isolatedModules": true,
+    // فرض اكتشاف الوحدات
     "moduleDetection": "force",
+    // عدم إنتاج ملفات JS (Vite يتولى ذلك)
     "noEmit": true,
+    // React JSX Transform الجديد
     "jsx": "react-jsx",
+    // فحص صارم للأنواع
     "strict": true,
+    // تحذير من المتغيرات غير المستخدمة
     "noUnusedLocals": true,
+    // تحذير من المعاملات غير المستخدمة
     "noUnusedParameters": true,
+    // منع السقوط في switch cases
     "noFallthroughCasesInSwitch": true,
+    // فحص الاستيرادات الجانبية
     "noUncheckedSideEffectImports": true
   },
+  // تضمين مجلد src فقط
   "include": [
     "src"
   ]

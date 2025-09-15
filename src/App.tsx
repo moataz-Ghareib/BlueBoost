@@ -1,5 +1,5 @@
-// Main application component for BlueBoost gaming platform
-// This is the root component that renders the entire desktop layout
+// المكون الرئيسي للتطبيق لمنصة BlueBoost للألعاب
+// هذا هو المكون الجذر الذي يعرض تخطيط سطح المكتب بالكامل
 import React from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { CallToActionSection } from "./screens/Desktop/sections/CallToActionSection/CallToActionSection";
@@ -12,50 +12,50 @@ import { HeroSection } from "./screens/Desktop/sections/HeroSection/HeroSection"
 import { TestimonialsSection } from "./screens/Desktop/sections/TestimonialsSection/TestimonialsSection";
 
 /**
- * Main App Component
+ * مكون التطبيق الرئيسي
  * 
- * This component serves as the primary layout container for the BlueBoost gaming platform.
- * It wraps the entire application with LanguageProvider for bilingual support (English/Arabic)
- * and renders all main sections in the correct order.
+ * يعمل هذا المكون كحاوية التخطيط الأساسية لمنصة BlueBoost للألعاب.
+ * يلف التطبيق بالكامل مع LanguageProvider للدعم ثنائي اللغة (الإنجليزية/العربية)
+ * ويعرض جميع الأقسام الرئيسية بالترتيب الصحيح.
  * 
- * Features:
- * - Bilingual support (English/Arabic) with RTL/LTR text direction
- * - Responsive design across all device sizes
- * - Full-screen dark theme with brand colors
- * - Professional gaming platform layout
+ * المميزات:
+ * - دعم ثنائي اللغة (الإنجليزية/العربية) مع اتجاه النص RTL/LTR
+ * - تصميم متجاوب عبر جميع أحجام الأجهزة
+ * - سمة داكنة بملء الشاشة مع ألوان العلامة التجارية
+ * - تخطيط منصة ألعاب احترافي
  * 
- * @returns {JSX.Element} The complete application layout
+ * @returns {JSX.Element} تخطيط التطبيق الكامل
  */
 export const App = (): JSX.Element => {
   return (
-    // Language provider wraps the entire app for bilingual support
+    // موفر اللغة يلف التطبيق بالكامل للدعم ثنائي اللغة
     <LanguageProvider>
-      {/* Main application container with dark background and full width */}
+      {/* حاوية التطبيق الرئيسية مع خلفية داكنة وعرض كامل */}
       <div className="bg-[#010b19] flex flex-col items-center w-full overflow-x-hidden">
-        {/* Content wrapper with consistent dark background */}
+        {/* غلاف المحتوى مع خلفية داكنة متسقة */}
         <div className="bg-[#010b19] w-full flex flex-col">
-          {/* Hero section - Main landing area with navigation */}
+          {/* قسم البطل - منطقة الهبوط الرئيسية مع التنقل */}
           <HeroSection />
-          
-          {/* Games section - Grid of available games */}
+
+          {/* قسم الألعاب - شبكة الألعاب المتاحة */}
           <GamesSection />
-          
-          {/* Features list section - Platform benefits */}
+
+          {/* قسم قائمة المميزات - فوائد المنصة */}
           <FeaturesListSection />
-          
-          {/* Testimonials section - Customer reviews carousel */}
+
+          {/* قسم الشهادات - دوارة مراجعات العملاء */}
           <TestimonialsSection />
-          
-          {/* Features section - Statistics and company info */}
+
+          {/* قسم المميزات - الإحصائيات ومعلومات الشركة */}
           <FeaturesSection />
-          
-          {/* FAQ section - Frequently asked questions accordion */}
+
+          {/* قسم الأسئلة الشائعة - أكورديون الأسئلة المتكررة */}
           <FaqSection />
-          
-          {/* Call to action section - Sign up/sign in buttons */}
+
+          {/* قسم الدعوة للعمل - أزرار التسجيل/تسجيل الدخول */}
           <CallToActionSection />
-          
-          {/* Footer section - Links, contact info, and company details */}
+
+          {/* قسم التذييل - الروابط ومعلومات الاتصال وتفاصيل الشركة */}
           <FooterSection />
         </div>
       </div>

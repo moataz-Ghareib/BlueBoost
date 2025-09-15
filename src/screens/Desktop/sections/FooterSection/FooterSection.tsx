@@ -1,56 +1,48 @@
 /**
- * Footer Section for BlueBoost Gaming Platform
  * قسم التذييل لمنصة BlueBoost للألعاب
  * 
- * Complete footer with game cards, company information, links, and contact details.
  * تذييل كامل مع بطاقات الألعاب ومعلومات الشركة والروابط وتفاصيل الاتصال
  * 
- * Features / المميزات:
- * - Responsive game cards with optimized tablet support / بطاقات ألعاب متجاوبة مع دعم محسن للأجهزة اللوحية
- * - Single horizontal row layout on web screens / تخطيط صف أفقي واحد على شاشات الويب
- * - Professional hover effects and animations / تأثيرات تحويم ورسوم متحركة احترافية
- * - Multilingual support (Arabic/English) / دعم متعدد اللغات (عربي/إنجليزي)
- * - Dynamic responsive breakpoints / نقاط استجابة ديناميكية
- * - Company information and legal links / معلومات الشركة والروابط القانونية
- * - Professional support contact section / قسم الاتصال بالدعم الفني المحترف
+ * المميزات:
+ * - بطاقات ألعاب متجاوبة مع دعم محسن للأجهزة اللوحية
+ * - تخطيط صف أفقي واحد على شاشات الويب
+ * - تأثيرات تحويم ورسوم متحركة احترافية
+ * - دعم متعدد اللغات (عربي/إنجليزي)
+ * - نقاط استجابة ديناميكية
+ * - معلومات الشركة والروابط القانونية
+ * - قسم الاتصال بالدعم الفني المحترف
  * 
- * Technical Implementation / التطبيق التقني:
- * - React functional component with TypeScript / مكون React وظيفي مع TypeScript
- * - Tailwind CSS for responsive styling / Tailwind CSS للتصميم المتجاوب
- * - Context-based language switching / تبديل اللغة باستخدام Context
- * - Optimized for mobile, tablet, and desktop / محسن للهاتف والتابلت وسطح المكتب
+ * التطبيق التقني:
+ * - مكون React وظيفي مع TypeScript
+ * - Tailwind CSS للتصميم المتجاوب
+ * - تبديل اللغة باستخدام Context
+ * - محسن للهاتف والتابلت وسطح المكتب
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  * @version 1.0.0
  * @since 2024
  */
 
-// استيراد React والمكونات المطلوبة / Import React and required components
+// استيراد React والمكونات المطلوبة
 import React from "react";
-import { Button } from "../../../../components/ui/button"; // مكون الزر من مكتبة UI / Button component from UI library
-import { useLanguage } from "../../../../contexts/LanguageContext"; // سياق اللغة للترجمة / Language context for translation
+import { Button } from "../../../../components/ui/button"; // مكون الزر من مكتبة UI
+import { useLanguage } from "../../../../contexts/LanguageContext"; // سياق اللغة للترجمة
 
 /**
- * FooterSection Component - Main footer component for the BlueBoost platform
  * مكون FooterSection - مكون التذييل الرئيسي لمنصة BlueBoost
  * 
- * Renders complete footer with all company information, game cards, legal links,
- * and professional support contact section. Fully responsive across all devices.
  * يعرض تذييل كامل مع جميع معلومات الشركة وبطاقات الألعاب
  * والروابط القانونية وقسم الاتصال بالدعم المحترف
  * 
- * @returns {JSX.Element} Complete footer section / قسم تذييل كامل
+ * @returns {JSX.Element} قسم تذييل كامل
  */
 export const FooterSection = (): JSX.Element => {
-  // استخراج دالة الترجمة واللغة الحالية / Extract translation function and current language
+  // استخراج دالة الترجمة واللغة الحالية
   const { t, language } = useLanguage();
   
   /**
-   * Game data array for footer game cards display
    * مصفوفة بيانات الألعاب لعرض بطاقات الألعاب في التذييل
    * 
-   * Contains 8 popular games with their icons and translation keys.
-   * Optimized for single-line horizontal display on web screens.
    * تحتوي على 8 ألعاب شائعة مع رموزها ومفاتيح الترجمة
    * محسنة للعرض الأفقي في صف واحد على شاشات الويب
    * 
@@ -59,42 +51,42 @@ export const FooterSection = (): JSX.Element => {
   const gameData = [
     {
       key: "games.marvelRivals",
-      icon: "/marvel-rivals.png",
+      icon: "/assets/images/marvel-rivals.png",
       width: "w-[149.45px]",
     },
     {
       key: "games.overwatch2",
-      icon: "/overwatch-2.png",
+      icon: "/assets/images/overwatch-2.png",
       width: "w-[146.06px]",
     },
     {
       key: "games.leagueOfLegends",
-      icon: "/league-of-legends.png",
+      icon: "/assets/images/league-of-legends.png",
       width: "w-[186.05px]",
     },
     {
       key: "games.valorant",
-      icon: "/valorant.png",
+      icon: "/assets/images/valorant.png",
       width: "w-[119.19px]",
     },
     {
       key: "games.teamfightTactics",
-      icon: "/teamfight-tactics.png",
+      icon: "/assets/images/teamfight-tactics.png",
       width: "w-[177.61px]",
     },
     {
       key: "games.rainbowSixSiege",
-      icon: "/rainbow-six-siege.png",
+      icon: "/assets/images/rainbow-six-siege.png",
       width: "w-[180.99px]",
     },
     {
       key: "games.callOfDuty",
-      icon: "/call-of-duty.png",
+      icon: "/assets/images/call-of-duty.png",
       width: "w-[139.02px]",
     },
     {
       key: "games.dota2",
-      icon: "/dota-2.png",
+      icon: "/assets/images/dota-2.png",
       width: "w-[107.08px]",
     },
   ];
@@ -105,7 +97,7 @@ export const FooterSection = (): JSX.Element => {
 
   return (
     <footer className="flex flex-col w-full items-center gap-6 md:gap-8 lg:gap-10 relative bg-transparent rounded-[10px] border-t-2 [border-top-style:solid] [border-right-style:none] [border-bottom-style:none] [border-left-style:none] border-[#2f2f2f3d] px-4 md:px-8">
-      {/* حاوية البطاقات مع التخطيط المتجاوب / Responsive cards container */}
+      {/* حاوية البطاقات مع التخطيط المتجاوب */}
       <div className="flex flex-wrap xl:flex-nowrap w-full items-center justify-center xl:justify-between gap-3 sm:gap-4 md:gap-3 lg:gap-4 xl:gap-2 py-6 md:py-8 lg:py-10 px-4 md:px-6 lg:px-8">
         {gameData.map((game, index) => (
           <div
@@ -126,7 +118,7 @@ export const FooterSection = (): JSX.Element => {
       <div className="flex flex-col md:flex-row w-full max-w-6xl items-center md:items-start justify-between gap-8 md:gap-12 lg:gap-16 relative py-8 md:py-10 lg:py-12">
         <div className="flex flex-col w-full md:w-[250px] lg:w-[340.09px] items-start gap-4 md:gap-6 relative">
           <img
-            src="/BlueBoostz Logo.svg"
+            src="/assets/images/BlueBoostz Logo.svg"
             alt="BlueBoostz logo"
             className="relative w-[120px] h-[40px] md:w-[150px] lg:w-[181.38px] md:h-[50px] lg:h-[58.04px] rounded-[1px]"
           />
@@ -205,7 +197,7 @@ export const FooterSection = (): JSX.Element => {
           <img
             className="relative flex-[0_0_auto] w-24 md:w-28 lg:w-auto"
             alt="Frame"
-            src="/frame-1644.svg"
+            src="/assets/images/frame-1644.svg"
           />
 
           <div className="inline-flex items-center justify-center gap-2 md:gap-3 lg:gap-[13.34px] px-0 py-2 md:py-3 lg:py-[13.34px] relative flex-[0_0_auto]">

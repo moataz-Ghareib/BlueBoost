@@ -1,14 +1,32 @@
+<!--
+  ملف HTML الرئيسي لمنصة BlueBoost للألعاب
+  
+  يحتوي هذا الملف على:
+  - إعدادات HTML الأساسية مع دعم RTL/LTR
+  - تحميل الخطوط العربية والإنجليزية من Google Fonts
+  - أنماط CSS مخصصة للخطوط وشريط التمرير
+  - نقطة دخول التطبيق React
+  
+  @author فريق تطوير BlueBoost
+-->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!-- ترميز الأحرف: UTF-8 لدعم العربية -->
     <meta charset="utf-8" />
+    <!-- عنوان الصفحة -->
     <title>BlueBoost - Game Boosting Platform</title>
+    <!-- إعدادات العرض للأجهزة المحمولة -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- وصف الصفحة لمحركات البحث -->
     <meta name="description" content="Professional game boosting services - BlueBoost" />
+    
+    <!-- الأنماط المخصصة -->
     <style>
+      /* استيراد الخطوط من Google Fonts - دعم العربية والإنجليزية */
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap");
       
-      /* RTL/LTR base styles with improved font fallbacks */
+      /* أنماط أساسية لـ RTL/LTR مع خطوط احتياطية محسنة */
       html[dir="rtl"] {
         font-family: 'Noto Sans Arabic', 'Cairo', 'Tajawal', 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
       }
@@ -17,7 +35,7 @@
         font-family: 'Inter', 'Plus Jakarta Sans', 'Open Sans', 'Noto Sans Arabic', system-ui, sans-serif;
       }
       
-      /* Improved mixed-content font handling */
+      /* معالجة محسنة للمحتوى المختلط */
       .font-arabic {
         font-family: 'Noto Sans Arabic', 'Cairo', 'Tajawal', 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif !important;
         font-feature-settings: 'liga' 1, 'kern' 1;
@@ -30,13 +48,13 @@
         text-rendering: optimizeLegibility;
       }
       
-      /* Smooth transitions for direction changes */
+      /* انتقالات سلسة لتغييرات الاتجاه */
       * {
         transition: margin 0.3s ease, padding 0.3s ease;
       }
       
-      /* Professional Scrollbar Styling */
-      /* Webkit browsers (Chrome, Safari, Edge) */
+      /* تصميم شريط التمرير الاحترافي */
+      /* متصفحات Webkit (Chrome, Safari, Edge) */
       ::-webkit-scrollbar {
         width: 12px;
         height: 12px;
@@ -69,13 +87,13 @@
         background: #010b19;
       }
       
-      /* Firefox scrollbar */
+      /* شريط تمرير Firefox */
       html {
         scrollbar-width: thin;
         scrollbar-color: #407bff #010b19;
       }
       
-      /* Custom scrollbar for specific containers */
+      /* شريط تمرير مخصص للحاويات المحددة */
       .custom-scrollbar {
         scrollbar-width: thin;
         scrollbar-color: #407bff #0a1628;
@@ -102,10 +120,13 @@
         box-shadow: 0 0 8px rgba(64, 123, 255, 0.3);
       }
     </style>
+    <!-- ربط ملف Tailwind CSS -->
     <link href="tailwind.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- حاوية التطبيق الرئيسية -->
     <div id="app"></div>
+    <!-- تحميل التطبيق React -->
     <script type="module" src="./src/index.tsx"></script>
   </body>
 </html>

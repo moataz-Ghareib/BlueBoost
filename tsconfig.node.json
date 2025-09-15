@@ -1,23 +1,52 @@
+/**
+ * تكوين TypeScript لأدوات البناء - منصة BlueBoost للألعاب
+ * 
+ * يحتوي هذا الملف على إعدادات TypeScript المخصصة لأدوات البناء
+ * مثل ملف تكوين Vite. يستخدم إعدادات Node.js الحديثة.
+ * 
+ * الإعدادات الرئيسية:
+ * - target: ES2022 لـ Node.js الحديث
+ * - lib: ES2023 للميزات الأحدث
+ * - moduleResolution: bundler لـ Vite
+ * 
+ * @author فريق تطوير BlueBoost
+ */
 {
   "compilerOptions": {
+    // ملف معلومات البناء للتسريع
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    // الهدف: ES2022 لـ Node.js الحديث
     "target": "ES2022",
+    // المكتبات: ES2023 للميزات الأحدث
     "lib": [
       "ES2023"
     ],
+    // نظام الوحدات: ESNext
     "module": "ESNext",
+    // تخطي فحص مكتبات الطرف الثالث
     "skipLibCheck": true,
+    // حل الوحدات: bundler لـ Vite
     "moduleResolution": "bundler",
+    // السماح باستيراد ملفات .ts
     "allowImportingTsExtensions": true,
+    // وحدات معزولة للأداء
     "isolatedModules": true,
+    // فرض اكتشاف الوحدات
     "moduleDetection": "force",
+    // عدم إنتاج ملفات JS
     "noEmit": true,
+    // فحص صارم للأنواع
     "strict": true,
+    // تحذير من المتغيرات غير المستخدمة
     "noUnusedLocals": true,
+    // تحذير من المعاملات غير المستخدمة
     "noUnusedParameters": true,
+    // منع السقوط في switch cases
     "noFallthroughCasesInSwitch": true,
+    // فحص الاستيرادات الجانبية
     "noUncheckedSideEffectImports": true
   },
+  // تضمين ملف تكوين Vite فقط
   "include": [
     "vite.config.ts"
   ]

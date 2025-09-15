@@ -1,21 +1,21 @@
 /**
- * Main application entry point for BlueBoost gaming platform
+ * نقطة دخول التطبيق الرئيسية لمنصة BlueBoost للألعاب
  * 
- * This file serves as the root entry point that:
- * - Creates the React root element
- * - Enables React Strict Mode for development checks
- * - Renders the main App component into the DOM
+ * يعمل هذا الملف كنقطة الدخول الجذر التي:
+ * - تنشئ عنصر React الجذر
+ * - تمكن React Strict Mode لفحوصات التطوير
+ * - تعرض مكون App الرئيسي في DOM
  * 
- * The application uses React 18's createRoot API for concurrent features
- * and wraps the app in StrictMode for enhanced development experience.
+ * يستخدم التطبيق createRoot API من React 18 للميزات المتزامنة
+ * ويلف التطبيق في StrictMode لتجربة تطوير محسنة.
  */
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
 
-// Create React root and render the application
-// StrictMode helps identify potential problems in development
+// إنشاء جذر React وعرض التطبيق
+// StrictMode يساعد في تحديد المشاكل المحتملة في التطوير
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
     <App />

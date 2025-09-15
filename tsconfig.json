@@ -1,3 +1,16 @@
+/**
+ * ملف تكوين TypeScript الرئيسي لمنصة BlueBoost للألعاب
+ * 
+ * هذا الملف يعمل كنقطة دخول رئيسية لتكوين TypeScript في المشروع.
+ * يستخدم نظام المراجع (references) لتقسيم التكوين إلى ملفات منفصلة
+ * للتطبيق الرئيسي وأدوات البناء.
+ * 
+ * المراجع:
+ * - tsconfig.app.json: تكوين التطبيق الرئيسي (src/)
+ * - tsconfig.node.json: تكوين أدوات البناء (vite.config.ts)
+ * 
+ * @author فريق تطوير BlueBoost
+ */
 {
   "files": [],
   "references": [

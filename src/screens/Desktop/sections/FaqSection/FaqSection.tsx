@@ -1,27 +1,27 @@
 /**
- * FAQ Section for BlueBoost Gaming Platform
+ * قسم الأسئلة الشائعة لمنصة BlueBoost للألعاب
  * 
- * This section displays frequently asked questions in an interactive accordion format.
- * Features professional styling with unified blue backgrounds for expanded items and
- * custom expand/collapse icons following the gaming platform design system.
+ * يعرض هذا القسم الأسئلة المتكررة في تنسيق أكورديون تفاعلي.
+ * يتميز بتصميم احترافي مع خلفيات زرقاء موحدة للعناصر الموسعة
+ * وأيقونات توسع/طي مخصصة تتبع نظام تصميم منصة الألعاب.
  * 
- * Features:
- * - Interactive accordion with single item expansion
- * - Unified blue background (#407BFF47) for expanded items
- * - Custom + and - icons in circular blue buttons
- * - Professional hover effects and animations
- * - Bilingual support (English/Arabic)
- * - Responsive design across all device sizes
- * - First item expanded by default
+ * المميزات:
+ * - أكورديون تفاعلي مع توسع عنصر واحد
+ * - خلفية زرقاء موحدة (#407BFF47) للعناصر الموسعة
+ * - أيقونات + و - مخصصة في أزرار زرقاء دائرية
+ * - تأثيرات تحويم ورسوم متحركة احترافية
+ * - دعم ثنائي اللغة (الإنجليزية/العربية)
+ * - تصميم متجاوب عبر جميع أحجام الأجهزة
+ * - العنصر الأول موسع افتراضياً
  * 
- * Design Specifications:
- * - Follows UI Design specification for FAQ accordion design
- * - Uses exact color values: #407BFF47 for expanded background
- * - No border separators between items
- * - Custom icons instead of default chevrons
- * - Professional spacing and typography scaling
+ * مواصفات التصميم:
+ * - يتبع مواصفة تصميم UI لتصميم أكورديون الأسئلة الشائعة
+ * - يستخدم قيم ألوان دقيقة: #407BFF47 لخلفية الموسع
+ * - لا توجد فواصل حدود بين العناصر
+ * - أيقونات مخصصة بدلاً من الشيفرون الافتراضي
+ * - مسافات احترافية وتدرج طباعة
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  */
 
 import React from "react";
@@ -34,21 +34,21 @@ import {
 } from "../../../../components/ui/accordion";
 
 /**
- * FaqSection Component
+ * مكون FaqSection
  * 
- * Renders the FAQ section with accordion functionality.
- * Adapts text direction and font based on selected language.
+ * يعرض قسم الأسئلة الشائعة مع وظيفة الأكورديون.
+ * يتكيف مع اتجاه النص والخط بناءً على اللغة المحددة.
  * 
- * @returns {JSX.Element} FAQ section with interactive accordion
+ * @returns {JSX.Element} قسم الأسئلة الشائعة مع أكورديون تفاعلي
  */
 export const FaqSection = (): JSX.Element => {
-  // Get translation function and language state from context
+  // الحصول على دالة الترجمة وحالة اللغة من السياق
   const { t, language } = useLanguage();
   
   /**
-   * FAQ data structure
-   * Contains all FAQ items with unique IDs, questions, and answers
-   * Only the first item has an answer, others are placeholders
+   * هيكل بيانات الأسئلة الشائعة
+   * يحتوي على جميع عناصر الأسئلة الشائعة مع معرفات فريدة وأسئلة وإجابات
+   * العنصر الأول فقط له إجابة، الآخرون عبارة عن عناصر نائبة
    */
   const faqData = [
     {
@@ -90,14 +90,14 @@ export const FaqSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-col w-full items-center gap-8 md:gap-12 lg:gap-20 px-4 md:px-8 py-12 md:py-16 lg:py-20 border-t-[1.33px] [border-top-style:solid] border-[#2f2f2f3d]">
-      {/* Section header with title and heading */}
+      {/* رأس القسم مع العنوان والعنوان الرئيسي */}
       <header className="flex flex-col w-full max-w-2xl items-center gap-4 md:gap-6 lg:gap-[26px]">
-        {/* FAQ section title */}
+        {/* عنوان قسم الأسئلة الشائعة */}
         <div className="[font-family:'Inter',Helvetica] font-bold text-[#407bff] text-base md:text-lg lg:text-xl text-center tracking-[1px] md:tracking-[2.00px] leading-4 whitespace-nowrap">
           {t('faq.title')}
         </div>
 
-        {/* Main heading with question and answer text */}
+        {/* العنوان الرئيسي مع نص السؤال والإجابة */}
         <h2 className={`[font-family:'Inter',Helvetica] font-semibold text-2xl md:text-3xl lg:text-5xl text-center tracking-[0] leading-[1.2] md:leading-[59px] ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>
           <span className="text-white">{t('faq.heading')}
             <br />
@@ -106,39 +106,39 @@ export const FaqSection = (): JSX.Element => {
         </h2>
       </header>
 
-      {/* FAQ accordion container with max width for large screens */}
+      {/* حاوية أكورديون الأسئلة الشائعة مع عرض أقصى للشاشات الكبيرة */}
       <div className="w-full max-w-[90rem]">
         <Accordion
-          type="single"          // Only one item can be expanded at a time
-          collapsible            // Allow collapsing the expanded item
-          defaultValue="item-1" // First item expanded by default
+          type="single"          // عنصر واحد فقط يمكن توسيعه في كل مرة
+          collapsible            // السماح بطي العنصر الموسع
+          defaultValue="item-1" // العنصر الأول موسع افتراضياً
           className="w-full"
         >
-          {/* Map through FAQ data to create accordion items */}
+          {/* التكرار عبر بيانات الأسئلة الشائعة لإنشاء عناصر الأكورديون */}
           {faqData.map((faq) => (
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              // Professional styling with unified blue background for expanded state
+              // تصميم احترافي مع خلفية زرقاء موحدة للحالة الموسعة
               className="border-t-[2.67px] [border-top-style:solid] border-[#2f2f2f] first:border-t-0 group transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 hover:bg-[#ffffff02] rounded-lg hover:border-[#407bff]/20 data-[state=open]:bg-[#407BFF47] data-[state=open]:rounded-[12px]"
             >
-              {/* Accordion trigger with question text and custom icon */}
+              {/* محفز الأكورديون مع نص السؤال وأيقونة مخصصة */}
               <AccordionTrigger className="items-center pt-4 md:pt-6 lg:pt-[32.01px] pb-4 md:pb-6 px-4 md:px-6 hover:no-underline data-[state=open]:bg-transparent data-[state=open]:px-6 md:data-[state=open]:px-8 data-[state=open]:py-6 md:data-[state=open]:py-8 data-[state=open]:pt-6 md:data-[state=open]:pt-8 data-[state=open]:pb-0 transition-all duration-300 [&>svg]:hidden hover:px-6 md:hover:px-8 hover:bg-[#407BFF20]">
-                {/* Question text with hover effects */}
+                {/* نص السؤال مع تأثيرات التحويم */}
                 <div className="[font-family:'Plus_Jakarta_Sans',Helvetica] font-semibold text-white text-base md:text-xl lg:text-2xl tracking-[0] leading-[1.2] md:leading-[37.3px] text-left transition-all duration-300 group-hover:text-blue-200">
                   {faq.question}
                 </div>
                 
-                {/* Custom expand/collapse icon button */}
+                {/* زر أيقونة التوسع/الطي المخصص */}
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#407bff] flex items-center justify-center shrink-0 ml-4 transition-all duration-300 group-hover:border-blue-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/30 data-[state=open]:border-white data-[state=open]:bg-white">
-                  {/* Plus icon - shown when collapsed */}
+                  {/* أيقونة الزائد - تظهر عند الطي */}
                   <span className="text-[#407bff] text-lg md:text-xl font-bold group-data-[state=closed]:block group-data-[state=open]:hidden transition-all duration-300 group-hover:text-blue-300">+</span>
-                  {/* Minus icon - shown when expanded */}
+                  {/* أيقونة الناقص - تظهر عند التوسع */}
                   <span className="text-[#407bff] text-lg md:text-xl font-bold group-data-[state=closed]:hidden group-data-[state=open]:block transition-all duration-300 group-hover:text-blue-300 data-[state=open]:text-[#407bff]">−</span>
                 </div>
               </AccordionTrigger>
               
-              {/* Accordion content - only rendered if answer exists */}
+              {/* محتوى الأكورديون - يُعرض فقط إذا كانت الإجابة موجودة */}
               {faq.answer && (
                 <AccordionContent className="px-6 md:px-8 pb-6 md:pb-8 pt-0 bg-transparent transition-all duration-300">
                   <div className={`[font-family:'Plus_Jakarta_Sans',Helvetica] font-medium text-white text-[14px] md:text-[16px] lg:text-[18px] tracking-[0] leading-[1.5] md:leading-[1.6] transition-all duration-300 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}>

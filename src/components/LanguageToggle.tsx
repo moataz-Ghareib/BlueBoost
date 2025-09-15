@@ -1,24 +1,24 @@
 /**
- * Language Toggle Component for BlueBoost Gaming Platform
+ * مكون تبديل اللغة لمنصة BlueBoost للألعاب
  * 
- * A compact, professional language switcher that allows users to toggle
- * between English and Arabic languages with visual flag indicators.
+ * مبدل لغة مدمج واحترافي يسمح للمستخدمين بالتبديل
+ * بين اللغتين الإنجليزية والعربية مع مؤشرات أعلام بصرية.
  * 
- * Features:
- * - Flag-only design (🇺🇸 for English, 🇸🇦 for Arabic)
- * - Smooth hover animations with scale effect
- * - Bilingual tooltips for accessibility
- * - Consistent styling with the overall design system
- * - Responsive and mobile-friendly design
+ * المميزات:
+ * - تصميم بالأعلام فقط (🇺🇸 للإنجليزية، 🇸🇦 للعربية)
+ * - رسوم متحركة سلسة عند التحويم مع تأثير التكبير
+ * - تلميحات ثنائية اللغة لإمكانية الوصول
+ * - تصميم متسق مع نظام التصميم العام
+ * - تصميم متجاوب وصديق للهاتف المحمول
  * 
- * Design Specifications:
- * - Clean, compact button (w-10 h-10) matching mobile version
- * - Centered flag icons (text-xl) without text labels
- * - Hover scale effect and smooth transitions
- * - American flag switches to Arabic/Saudi flag
- * - Saudi flag switches back to English/American flag
+ * مواصفات التصميم:
+ * - زر نظيف ومدمج (w-10 h-10) يطابق إصدار الهاتف المحمول
+ * - أيقونات أعلام متوسطة (text-xl) بدون تسميات نصية
+ * - تأثير تكبير عند التحويم وانتقالات سلسة
+ * - العلم الأمريكي يتبدل إلى العلم العربي/السعودي
+ * - العلم السعودي يعود إلى العلم الإنجليزي/الأمريكي
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  */
 
 import React from 'react';
@@ -26,32 +26,32 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
 
 /**
- * LanguageToggle Component
+ * مكون LanguageToggle
  * 
- * Renders a button that toggles between English and Arabic languages.
- * Displays appropriate country flags and provides bilingual tooltips.
+ * يعرض زر يتبدل بين اللغتين الإنجليزية والعربية.
+ * يعرض أعلام البلدان المناسبة ويوفر تلميحات ثنائية اللغة.
  * 
- * @returns {JSX.Element} Language toggle button with flag indicator
+ * @returns {JSX.Element} زر تبديل اللغة مع مؤشر العلم
  */
 export const LanguageToggle: React.FC = () => {
-  // Get current language and toggle function from language context
+  // الحصول على اللغة الحالية ودالة التبديل من سياق اللغة
   const { language, toggleLanguage } = useLanguage();
 
   return (
     <Button
-      variant="ghost"              // Minimal styling without background
-      size="sm"                   // Small size for compact header layout
-      onClick={toggleLanguage}     // Toggle between English and Arabic
+      variant="ghost"              // تصميم بسيط بدون خلفية
+      size="sm"                   // حجم صغير لتخطيط رأس مدمج
+      onClick={toggleLanguage}     // التبديل بين الإنجليزية والعربية
       className="flex items-center justify-center w-10 h-10 p-2 text-white hover:bg-white/10 transition-all duration-200 rounded-lg hover:scale-105"
-      title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'} // Bilingual tooltip
+      title={language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'} // تلميح ثنائي اللغة
     >
-      {/* Flag icon indicating current and target language */}
+      {/* أيقونة العلم التي تشير إلى اللغة الحالية والمستهدفة */}
       <span className="text-xl">
-        {language === 'en' ? '🇺🇸' : '🇸🇦'} {/* American flag for English, Saudi flag for Arabic */}
+        {language === 'en' ? '🇺🇸' : '🇸🇦'} {/* العلم الأمريكي للإنجليزية، العلم السعودي للعربية */}
       </span>
     </Button>
   );
 };
 
-// Export as default for flexible importing
+// تصدير كافتراضي للاستيراد المرن
 export default LanguageToggle;

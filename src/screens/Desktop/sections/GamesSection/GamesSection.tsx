@@ -1,19 +1,19 @@
 /**
- * Games Section for BlueBoost Gaming Platform
+ * قسم الألعاب لمنصة BlueBoost للألعاب
  * 
- * This section displays a responsive grid of game cards with professional scroll animations.
- * Features intersection observer for scroll-triggered animations, Marvel Rivals services,
- * and full responsive design across all device sizes.
+ * يعرض هذا القسم شبكة متجاوبة من بطاقات الألعاب مع رسوم متحركة احترافية للتمرير.
+ * يتميز بمراقب التقاطع للرسوم المتحركة المحفزة بالتمرير وخدمات Marvel Rivals
+ * وتصميم متجاوب كامل عبر جميع أحجام الأجهزة.
  * 
- * Features:
- * - Professional scroll-triggered animations (cards appear from sides)
- * - Intersection Observer for animation timing
- * - Responsive grid layout (1-4 columns based on screen size)
- * - Marvel Rivals with service badges and "see all" button
- * - Professional hover effects and animations
- * - Staggered animation delays for smooth appearance
+ * المميزات:
+ * - رسوم متحركة احترافية محفزة بالتمرير (البطاقات تظهر من الجوانب)
+ * - مراقب التقاطع لتوقيت الرسوم المتحركة
+ * - تخطيط شبكة متجاوب (1-4 أعمدة بناءً على حجم الشاشة)
+ * - Marvel Rivals مع شارات الخدمة وزر "عرض الكل"
+ * - تأثيرات تحويم ورسوم متحركة احترافية
+ * - تأخيرات رسوم متحركة متدرجة للظهور السلس
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  */
 
 // استيراد الأيقونات والمكونات المعاد استخدامها من مكتبة الواجهة
@@ -88,74 +88,74 @@ export const GamesSection = (): JSX.Element => {
     {
       title: "Marvel Rivals",
       backgroundImage: "url(../link.svg)",
-      imageSrc: "/link.svg",
+      imageSrc: "/assets/images/link.svg",
       hasServices: true,
       services: marvelRivalsServices,
     },
     {
       // title: "Rocket League",
       backgroundImage: "url(../Link.svg)",
-      imageSrc: "/Link.svg",
+      imageSrc: "/assets/images/Link.svg",
       hasServices: false,
     },
     {
       // title: "World Of Warcraft",
       backgroundImage: "url(../link-1.svg)",
-      imageSrc: "/link-1.svg",
+      imageSrc: "/assets/images/link-1.svg",
       hasServices: false,
     },
     {
       // title: "Overwatch 2",
       backgroundImage: "url(../link-2.svg)",
-      imageSrc: "/link-2.svg",
+      imageSrc: "/assets/images/link-2.svg",
       hasServices: false,
     },
     {
       // title: "Teamfight Tactics",
       backgroundImage: "url(../link-4.svg)",
-      imageSrc: "/link-4.svg",
+      imageSrc: "/assets/images/link-4.svg",
       hasServices: false,
     },
     {
       // title: "Rainbow Six Siege",
       backgroundImage: "url(../link-5.svg)",
-      imageSrc: "/link-5.svg",
+      imageSrc: "/assets/images/link-5.svg",
       hasServices: false,
     },
     {
       // title: "Conter Strike 2",
       backgroundImage: "url(../link-6.svg)",
-      imageSrc: "/link-6.svg",
+      imageSrc: "/assets/images/link-6.svg",
       hasServices: false,
     },
     {
       // title: "League Of Legends",
       backgroundImage: "url(../link-7.svg)",
-      imageSrc: "/link-7.svg",
+      imageSrc: "/assets/images/link-7.svg",
       hasServices: false,
     },
     {
       // title: "Call Of Duty",
       backgroundImage: "url(../link-8.svg)",
-      imageSrc: "/link-8.svg",
+      imageSrc: "/assets/images/link-8.svg",
       hasServices: false,
     },
     {
       // title: "Dota 2",
       backgroundImage: "url(/link-9.png)",
-      imageSrc: "/link-9.png",
+      imageSrc: "/assets/images/link-9.png",
       hasServices: false,
     },
     {
       // title: "Valorant",
       backgroundImage: "url(../link-10.svg)",
-      imageSrc: "/link-10.svg",
+      imageSrc: "/assets/images/link-10.svg",
       hasServices: false,
     },
     {
       // title: "Fortnite",
       backgroundImage: "url(/link-11.svg)",
-      imageSrc: "/link-11.svg",
+      imageSrc: "/assets/images/link-11.svg",
       hasServices: false,
     },
   ];

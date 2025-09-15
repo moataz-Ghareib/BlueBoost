@@ -1,18 +1,18 @@
 /**
- * Testimonials Section for BlueBoost Gaming Platform
+ * قسم الشهادات لمنصة BlueBoost للألعاب
  * 
- * This section displays customer testimonials in an animated dual-carousel layout.
- * Features direction-aware animations, staggered timing, and RTL/LTR support.
+ * يعرض هذا القسم شهادات العملاء في تخطيط دوارة مزدوجة متحركة.
+ * يتميز برسوم متحركة واعية للاتجاه وتوقيت متدرج ودعم RTL/LTR.
  * 
- * Features:
- * - Dual-row animated carousels with different speeds
- * - Direction-aware animations (RTL/LTR support)
- * - Staggered animation timing (1-second delay on first row)
- * - Professional hover effects on testimonial cards
- * - Responsive design across all device sizes
- * - Seamless infinite scrolling with duplicated content
+ * المميزات:
+ * - دوارات متحركة مزدوجة الصف بسرعات مختلفة
+ * - رسوم متحركة واعية للاتجاه (دعم RTL/LTR)
+ * - توقيت رسوم متحركة متدرج (تأخير ثانية واحدة على الصف الأول)
+ * - تأثيرات تحويم احترافية على بطاقات الشهادات
+ * - تصميم متجاوب عبر جميع أحجام الأجهزة
+ * - تمرير لا نهائي سلس مع محتوى مكرر
  * 
- * @author BlueBoost Development Team
+ * @author فريق تطوير BlueBoost
  */
 
 import React, { useEffect, useRef, useState } from "react";
@@ -20,8 +20,8 @@ import { useLanguage } from "../../../../contexts/LanguageContext";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 /**
- * Testimonials data structure
- * Contains customer testimonials with names, locations, and feedback
+ * هيكل بيانات الشهادات
+ * يحتوي على شهادات العملاء مع الأسماء والمواقع والتعليقات
  */
 
 const testimonialsData = [
@@ -30,7 +30,7 @@ const testimonialsData = [
     nameKey: "testimonial1.name",
     locationKey: "testimonial1.location",
     textKey: "testimonial1.text",
-    avatar: "/user-avatar-4.png",
+    avatar: "/assets/images/user-avatar-4.png",
     bgColor: "bg-[#022446]",
   },
   {
@@ -38,7 +38,7 @@ const testimonialsData = [
     nameKey: "testimonial2.name",
     locationKey: "testimonial2.location",
     textKey: "testimonial2.text",
-    avatar: "/user-avatar-4.png",
+    avatar: "/assets/images/user-avatar-4.png",
     bgColor: "bg-[#022446]",
   },
   {
@@ -46,7 +46,7 @@ const testimonialsData = [
     nameKey: "testimonial3.name",
     locationKey: "testimonial3.location",
     textKey: "testimonial3.text",
-    avatar: "/user-avatar-2.png",
+    avatar: "/assets/images/user-avatar-2.png",
     bgColor: "bg-[#022446]",
   },
   {
@@ -54,7 +54,7 @@ const testimonialsData = [
     nameKey: "testimonial4.name",
     locationKey: "testimonial4.location",
     textKey: "testimonial4.text",
-    avatar: "/user-avatar-3.png",
+    avatar: "/assets/images/user-avatar-3.png",
     bgColor: "bg-[#022446]",
   },
   {
@@ -62,7 +62,7 @@ const testimonialsData = [
     nameKey: "testimonial5.name",
     locationKey: "testimonial5.location",
     textKey: "testimonial5.text",
-    avatar: "/user-avatar-4.png",
+    avatar: "/assets/images/user-avatar-4.png",
     bgColor: "bg-[#032547]",
   },
   {
@@ -70,7 +70,7 @@ const testimonialsData = [
     nameKey: "testimonial6.name",
     locationKey: "testimonial6.location",
     textKey: "testimonial6.text",
-    avatar: "/user-avatar-5.png",
+    avatar: "/assets/images/user-avatar-5.png",
     bgColor: "bg-[#032547]",
   },
   {
@@ -78,7 +78,7 @@ const testimonialsData = [
     nameKey: "testimonial7.name",
     locationKey: "testimonial7.location",
     textKey: "testimonial7.text",
-    avatar: "/user-avatar-6.png",
+    avatar: "/assets/images/user-avatar-6.png",
     bgColor: "bg-[#032547]",
   },
   {
@@ -86,7 +86,7 @@ const testimonialsData = [
     nameKey: "testimonial8.name",
     locationKey: "testimonial8.location",
     textKey: "testimonial8.text",
-    avatar: "/user-avatar-7.png",
+    avatar: "/assets/images/user-avatar-7.png",
     bgColor: "bg-[#032547]",
   },
 ];
@@ -103,31 +103,31 @@ export const TestimonialsSection = (): JSX.Element => {
     
     if (!carousel1 || !carousel2) return;
 
-    // Initialize scroll positions
+    // تهيئة مواضع التمرير
     carousel1.scrollLeft = 0;
     carousel2.scrollLeft = 0;
 
     let animationFrameId: number;
-    let frameCount = 0; // Add frame counter for delay
-    const speed1 = 1.2; // Speed for top row (moderate speed)
-    const speed2 = 1.8; // Speed for bottom row (slightly faster but moderate)
-    const delayFrames = 60; // Delay first row by 1 second (60 frames at 60fps)
+    let frameCount = 0; // إضافة عداد الإطارات للتأخير
+    const speed1 = 1.2; // سرعة الصف العلوي (سرعة معتدلة)
+    const speed2 = 1.8; // سرعة الصف السفلي (أسرع قليلاً لكن معتدلة)
+    const delayFrames = 60; // تأخير الصف الأول بثانية واحدة (60 إطار بـ 60fps)
 
     const animate = () => {
       if (!isHovering) {
-        frameCount++; // Increment frame counter
+        frameCount++; // زيادة عداد الإطارات
         
-        // Handle RTL and LTR differently
+        // التعامل مع RTL و LTR بشكل مختلف
         if (direction === 'rtl') {
-          // Second row starts immediately
+          // الصف الثاني يبدأ فوراً
           carousel2.scrollLeft -= speed2;
           
-          // First row starts after delay
+          // الصف الأول يبدأ بعد التأخير
           if (frameCount > delayFrames) {
             carousel1.scrollLeft -= speed1;
           }
           
-          // Reset scroll position for RTL
+          // إعادة تعيين موضع التمرير لـ RTL
           if (carousel1.scrollLeft <= 0) {
             carousel1.scrollLeft = carousel1.scrollWidth / 2;
           }
@@ -136,15 +136,15 @@ export const TestimonialsSection = (): JSX.Element => {
             carousel2.scrollLeft = carousel2.scrollWidth / 2;
           }
         } else {
-          // Second row starts immediately
+          // الصف الثاني يبدأ فوراً
           carousel2.scrollLeft += speed2;
           
-          // First row starts after delay
+          // الصف الأول يبدأ بعد التأخير
           if (frameCount > delayFrames) {
             carousel1.scrollLeft += speed1;
           }
           
-          // Reset scroll position when we've scrolled past all items
+          // إعادة تعيين موضع التمرير عند تجاوز جميع العناصر
           if (carousel1.scrollLeft >= carousel1.scrollWidth / 2) {
             carousel1.scrollLeft = 0;
           }
@@ -163,9 +163,9 @@ export const TestimonialsSection = (): JSX.Element => {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isHovering, direction]); // Add direction as dependency
+  }, [isHovering, direction]); // إضافة direction كتبعية
 
-  // Split testimonials into two rows
+  // تقسيم الشهادات إلى صفين
   const firstRow = testimonialsData.slice(0, 4);
   const secondRow = testimonialsData.slice(4, 8);
 
@@ -186,7 +186,7 @@ export const TestimonialsSection = (): JSX.Element => {
           </h2>
         </header>
 
-        {/* First row carousel (slower) */}
+        {/* دوارة الصف الأول (أبطأ) */}
         <div 
           ref={carouselRef1}
           className="overflow-hidden w-full mb-6 md:mb-8"
@@ -194,9 +194,9 @@ export const TestimonialsSection = (): JSX.Element => {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          {/* Carousel track with duplicated items for seamless looping */}
+          {/* مسار الدوارة مع عناصر مكررة للحلقة السلسة */}
           <div className="flex w-max">
-            {/* First set of testimonials */}
+            {/* المجموعة الأولى من الشهادات */}
             {firstRow.map((testimonial) => (
               <div key={`first-${testimonial.id}`} className="mx-4 md:mx-6 lg:mx-8 min-w-[250px] md:min-w-[400px] lg:min-w-[592px]">
                 <Card
@@ -225,14 +225,14 @@ export const TestimonialsSection = (): JSX.Element => {
                     <img
                       className="hidden md:block absolute w-[100px] md:w-[120px] lg:w-[151px] h-[15px] md:h-[18px] lg:h-[22px] top-[120px] md:top-[160px] lg:top-[187px] left-[150px] md:left-[250px] lg:left-[366px]"
                       alt="Frame"
-                      src="/frame-1676.svg"
+                      src="/assets/images/frame-1676.svg"
                     />
                   </CardContent>
                 </Card>
               </div>
             ))}
             
-            {/* Second set of testimonials (duplicate for seamless looping) */}
+            {/* المجموعة الثانية من الشهادات (مكررة للحلقة السلسة) */}
             {firstRow.map((testimonial) => (
               <div key={`first-duplicate-${testimonial.id}`} className="mx-4 md:mx-6 lg:mx-8 min-w-[250px] md:min-w-[400px] lg:min-w-[592px]">
                 <Card
@@ -261,7 +261,7 @@ export const TestimonialsSection = (): JSX.Element => {
                     <img
                       className="hidden md:block absolute w-[100px] md:w-[120px] lg:w-[151px] h-[15px] md:h-[18px] lg:h-[22px] top-[120px] md:top-[160px] lg:top-[187px] left-[150px] md:left-[250px] lg:left-[366px]"
                       alt="Frame"
-                      src="/frame-1676.svg"
+                      src="/assets/images/frame-1676.svg"
                     />
                   </CardContent>
                 </Card>
@@ -270,7 +270,7 @@ export const TestimonialsSection = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Second row carousel (faster) */}
+        {/* دوارة الصف الثاني (أسرع) */}
         <div 
           ref={carouselRef2}
           className="overflow-hidden w-full"
@@ -278,9 +278,9 @@ export const TestimonialsSection = (): JSX.Element => {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          {/* Carousel track with duplicated items for seamless looping */}
+          {/* مسار الدوارة مع عناصر مكررة للحلقة السلسة */}
           <div className="flex w-max">
-            {/* First set of testimonials */}
+            {/* المجموعة الأولى من الشهادات */}
             {secondRow.map((testimonial) => (
               <div key={`second-${testimonial.id}`} className="mx-4 md:mx-6 lg:mx-8 min-w-[250px] md:min-w-[400px] lg:min-w-[592px]">
                 <Card
@@ -309,14 +309,14 @@ export const TestimonialsSection = (): JSX.Element => {
                     <img
                       className="hidden md:block absolute w-[100px] md:w-[120px] lg:w-[151px] h-[15px] md:h-[18px] lg:h-[22px] top-[120px] md:top-[160px] lg:top-[187px] left-[150px] md:left-[250px] lg:left-[366px]"
                       alt="Frame"
-                      src="/frame-1676.svg"
+                      src="/assets/images/frame-1676.svg"
                     />
                   </CardContent>
                 </Card>
               </div>
             ))}
             
-            {/* Second set of testimonials (duplicate for seamless looping) */}
+            {/* المجموعة الثانية من الشهادات (مكررة للحلقة السلسة) */}
             {secondRow.map((testimonial) => (
               <div key={`second-duplicate-${testimonial.id}`} className="mx-4 md:mx-6 lg:mx-8 min-w-[250px] md:min-w-[400px] lg:min-w-[592px]">
                 <Card
@@ -345,7 +345,7 @@ export const TestimonialsSection = (): JSX.Element => {
                     <img
                       className="hidden md:block absolute w-[100px] md:w-[120px] lg:w-[151px] h-[15px] md:h-[18px] lg:h-[22px] top-[120px] md:top-[160px] lg:top-[187px] left-[150px] md:left-[250px] lg:left-[366px]"
                       alt="Frame"
-                      src="/frame-1676.svg"
+                      src="/assets/images/frame-1676.svg"
                     />
                   </CardContent>
                 </Card>
